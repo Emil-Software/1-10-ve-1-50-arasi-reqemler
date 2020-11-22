@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Document</title>
+</head>
+
+<style>
+    .btn {
+        width: 200px;
+    }
+</style>
+<body>
+
+   <div class="btn-group d-flex justify-content-center mt-4">
+ 
+  <div class="btn-group ">
+    <button  type="button"  class="btn btn-primary dropdown-toggle "  data-toggle="dropdown">
+       Seviyyeler
+    </button>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" onclick="func()" href="#">Seviyye 1</a>
+      <a class="dropdown-item" onclick="func2()" href="#">Seviyye 2</a>
+    </div>
+  </div>
+</div>
+    
+
+    <div id="seviyye1" class="mt-3 text-center" style="display: none">
+    <input type="number" min="1" max="10" id="eded" />
+    <button onclick="Check()" id="btn">OK</button>
+       <span id="msg"></span>
+    </div>
+
+
+
+       <div id="seviyye2" class="mt-3 text-center" style="display: none">
+        <input type="number" min="1" max="50" id="eded1" />
+     <button  onclick="Basqa()" id="btn1">OK</button>
+      <span id="msg1"></span>
+      </div>
+    <script>
+
+        function func() {
+        document.getElementById("seviyye1").style.display = "block";
+    
+        }
+        function func2() {
+        document.getElementById("seviyye2").style.display = "block";
+    
+        }
+
+    
+
+
+        let nmbr =  Math.floor(Math.random() * 10) + 1;
+        let nmbr1 =  Math.floor(Math.random() * 10) + 12;
+        let sans  = 3;
+        let sans1 = 5;
+        console.log(nmbr);
+         console.log(nmbr1);
+
+
+        function Check(){
+            let usernumber = document.getElementById('eded').value;
+            document.getElementById('eded').value = "";
+            let msg = "";
+
+            if(sans == 0){
+                msg = 'Uduzdun';
+                document.getElementById("eded").style.display = "none";
+                document.getElementById("btn").style.display = "none";
+            }
+
+            else if(usernumber > nmbr){
+                msg = 'Aşağı';
+                sans--;
+            }
+            else if(usernumber < nmbr){
+                msg = 'Yuxarı';
+                sans--;
+            }
+            else{
+                msg = 'Təbriklər!!!';
+            }
+            document.getElementById("msg").innerHTML = msg;
+
+        }
+
+        function Basqa() {
+            let usernumber1 = document.getElementById('eded1').value;
+            document.getElementById('eded1').value = "";
+            let msg1 = "";
+
+            if(sans1 == 0) {
+                msg1 = 'Uduzdun';
+                document.getElementById("eded1").style.display = "none";
+                document.getElementById("btn1").style.display = "none";
+            }else if(usernumber1 > nmbr1) {
+                msg1 = 'Asagi';
+                sans1--;
+            }
+             else if(usernumber1 < nmbr1){
+                msg1 = 'Yuxarı';
+                sans1--;
+            }  else{
+                msg1 = 'Təbriklər!!!';
+            }
+            document.getElementById("msg1").innerHTML = msg1;
+
+        }
+
+
+    </script>
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
